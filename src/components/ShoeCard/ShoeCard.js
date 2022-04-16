@@ -32,39 +32,58 @@ const ShoeCard = ({
       : 'default'
 
   return (
-    <Link href={`/shoe/${slug}`}>
-      <Wrapper>
-        <ImageWrapper>
-          <Image alt="" src={imageSrc} />
-        </ImageWrapper>
-        <Spacer size={12} />
-        <Row>
-          <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
-        </Row>
-        <Row>
-          <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-        </Row>
-      </Wrapper>
-    </Link>
+    <Wrapper>
+      <Link href={`/shoe/${slug}`}>
+        <InnerWrapper>
+          <ImageWrapper>
+            <Image alt="" src={imageSrc} />
+          </ImageWrapper>
+          <Spacer size={12} />
+          <Row>
+            <Name>{name}</Name>
+            <Price>{formatPrice(price)}</Price>
+          </Row>
+          <Row>
+            <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          </Row>
+        </InnerWrapper>
+      </Link>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.article`
+  flex: 1 1 300px;
+
+  :last-child {
+    max-width: 400px;
+  }
+`;
+
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
-
 const ImageWrapper = styled.div`
   position: relative;
+  width: 100%;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+`;
 
 const Row = styled.div`
   font-size: 1rem;
+
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
