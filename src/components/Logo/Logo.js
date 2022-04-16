@@ -5,9 +5,9 @@ import { WEIGHTS } from '../../constants';
 
 const Logo = (props) => {
   return (
-    <Link href="/">
-      <Wrapper {...props}>Sole&amp;Ankle</Wrapper>
-    </Link>
+    <Wrapper {...props}>
+      <Link href="/">Sole&amp;Ankle</Link>
+    </Wrapper>
   );
 };
 
@@ -19,6 +19,9 @@ const Link = styled.a`
 const Wrapper = styled.h1`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.bold};
+
+  position: absolute;
+  left: 32px;
 `;
 
 export default Logo;
